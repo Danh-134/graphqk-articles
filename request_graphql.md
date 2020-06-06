@@ -86,3 +86,17 @@ query{
 ## BONUS
 ### Récupérer les trois permiers articles par date de création 
 # WIP
+
+### Implémenter une query permettant d'effectuer une recherche sur le body d'un article et le body d'un commentaire
+``` 
+  query {
+    search(value: "test"){
+      ...on Article{
+        body
+      }
+      ... on Comment{
+        body
+      }
+    }
+  }
+'''

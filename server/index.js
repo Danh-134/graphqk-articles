@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import User from "./models/User";
 import Article from "./models/Article";
 import Comment from "./models/Comment";
-import schema from "./graphql";
+import schema from "../graphql";
 
 const options = {
   port: process.env.PORT || "4000",
