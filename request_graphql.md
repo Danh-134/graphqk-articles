@@ -60,6 +60,7 @@
   }
 ```
 ## Récupérer la liste des articles et leur commentaire
+Example : 
 ```
   query{
     article(_id:"5edb51607c995f2c54a85397"){
@@ -68,6 +69,19 @@
       description  	
     }
   }
+```
+```
+query{
+  articles{
+	_id
+  title
+  description
+  body
+  tagList
+  author{username} #Attention il faut la dernière feature pour que cela fonctionne
+  comments{body}
+	}
+}
 ```
 ## BONUS
 ### Récupérer les trois permiers articles par date de création 

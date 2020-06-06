@@ -1,6 +1,6 @@
-import User from "../../../models/User";
-import Article from "../../../models/Article";
-import Comment from "../../../models/Comment";
+import User from "../../../server/models/User";
+import Article from "../../../server/models/Article";
+import Comment from "../../../server/models/Comment";
 
 export default {
   Query: {

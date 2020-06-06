@@ -1,6 +1,6 @@
-import User from "../../../models/User";
-import Article from "../../../models/Article";
-import Comment from "../../../models/Comment";
+import User from "../../../server/models/User";
+import Article from "../../../server/models/Article";
+import Comment from "../../../server/models/Comment";
 
 export default {
   Query: {
@@ -8,7 +8,7 @@ export default {
       return await Article.findOne({ _id }).exec();
     },
     articles: async (parent, args, context, info) => {
-      const res = await Article.find({})
+      const res = await Article.find({}).sort({'createAt':asc})
         .populate()
         .exec();
 
@@ -62,7 +62,7 @@ export default {
       return await User.findById(author);
     },
     comments: async ({ author }, args, context, info) => {
-      return await Comment.find({ author });
+      return await Comment.find({ author }).sort(create);
     }
   }
 };
