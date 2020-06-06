@@ -59,7 +59,7 @@
     }
   }
 ```
-## Récupérer les trois permiers articles par date de création
+## Récupérer la liste des articles et leur commentaire
 ```
   query{
     article(_id:"5edb51607c995f2c54a85397"){
