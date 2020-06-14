@@ -1,0 +1,67 @@
+query GetUsers {
+  users {
+    _id
+    username
+    email
+  }
+}
+
+mutation CreateAnArticle {
+  createArticle(
+    article: {
+      title: "test article"
+      description: "description of the article"
+      body: "body of the article"
+      author: "5edb592132fc5917edb8563e"
+      tagList: ["tag 1"]
+    }
+  ) {
+    _id
+    title
+  }
+}
+
+mutation CreateAComment {
+  createComment(
+    comment: {
+      body: "body of the comment"
+      author: "5edb592132fc5917edb8563e"
+      article: "5ee471fb7ead6f394f071b7e"
+    }
+  ) {
+    _id
+    body
+  }
+}
+
+query GetArticlesWithComments {
+  articles {
+    _id
+    title
+    comments {
+      body
+    }
+  }
+}
+
+query GetFirstArticlesOrderByDate {
+  articles(first: 1, orderBy: "createdAt") {
+    _id
+    title
+  }
+}
+
+query SearchArticlesAndComments {
+  search(value: "test") {
+    ... on Article {
+      slug
+      body
+    }
+    ... on Comment {
+      author {
+        username
+      }
+      body
+    }
+  }
+}
